@@ -10,10 +10,10 @@ on:
       - main
       - master
 
-name: R-CMD-check
+name: install-usethis
 
 jobs:
-  R-CMD-check:
+  install-usethis:
     runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -24,6 +24,5 @@ jobs:
         run: brew install libgit2
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "rcmdcheck"))
-          remotes::install_deps(dependencies = TRUE)
+          install.packages("usethis")
         shell: Rscript {0}
